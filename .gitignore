@@ -1,0 +1,14 @@
+# Environment & Secrets
+.env
+*.token
+*.key
+
+# Raw Frame Dumps (only keep compiled .webp and .html replay)
+frames/
+*.jpg
+*.png
+
+# Python
+__pycache__/
+*.pyc
+*.pyo

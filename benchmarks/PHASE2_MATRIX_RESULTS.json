@@ -1,0 +1,62 @@
+[
+  {
+    "provider": "nvidia",
+    "model": "stepfun-ai/step-5-preview",
+    "scenario": "sc1_busca_cotacao",
+    "success": true,
+    "total_elapsed": 12.74,
+    "total_model_latency": 1.67,
+    "avg_latency_per_step": 1.67,
+    "steps": 1,
+    "history": [
+      "Turn 1: {\"action\": \"TYPE_TEXT\", \"target\": 1, \"text\": \"BTC\"}"
+    ],
+    "recording_path": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\phase2\\nvidia_stepfun-ai_step-5-preview_sc1_busca_cotacao\\recording.webp",
+    "replay_html": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\phase2\\nvidia_stepfun-ai_step-5-preview_sc1_busca_cotacao\\replay.html"
+  },
+  {
+    "provider": "nvidia",
+    "model": "stepfun-ai/step-5-preview",
+    "scenario": "sc2_formulario_ordem",
+    "success": true,
+    "total_elapsed": 12.29,
+    "total_model_latency": 2.29,
+    "avg_latency_per_step": 2.29,
+    "steps": 1,
+    "history": [
+      "Turn 1: {\"action\": \"SELECT\", \"target\": 1, \"value\": \"BTC-PERP\"}"
+    ],
+    "recording_path": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\phase2\\nvidia_stepfun-ai_step-5-preview_sc2_formulario_ordem\\recording.webp",
+    "replay_html": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\phase2\\nvidia_stepfun-ai_step-5-preview_sc2_formulario_ordem\\replay.html"
+  },
+  {
+    "provider": "openrouter",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "scenario": "sc1_busca_cotacao",
+    "success": true,
+    "total_elapsed": 12.89,
+    "total_model_latency": 0.92,
+    "avg_latency_per_step": 0.92,
+    "steps": 1,
+    "history": [
+      "Turn 1: {\"action\": \"TYPE_TEXT\", \"target\": 1, \"text\": \"BTC\"}"
+    ],
+    "recording_path": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\phase2\\openrouter_deepseek_deepseek-v4.1-flash_sc1_busca_cotacao\\recording.webp",
+    "replay_html": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\phase2\\openrouter_deepseek_deepseek-v4.1-flash_sc1_busca_cotacao\\replay.html"
+  },
+  {
+    "provider": "openrouter",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "scenario": "sc2_formulario_ordem",
+    "success": true,
+    "total_elapsed": 12.11,
+    "total_model_latency": 1.09,
+    "avg_latency_per_step": 1.09,
+    "steps": 1,
+    "history": [
+      "Turn 1: {\"action\": \"SELECT\", \"target\": 1, \"value\": \"BTC-PERP\"}"
+    ],
+    "recording_path": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\phase2\\openrouter_deepseek_deepseek-v4.1-flash_sc2_formulario_ordem\\recording.webp",
+    "replay_html": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\phase2\\openrouter_deepseek_deepseek-v4.1-flash_sc2_formulario_ordem\\replay.html"
+  }
+]

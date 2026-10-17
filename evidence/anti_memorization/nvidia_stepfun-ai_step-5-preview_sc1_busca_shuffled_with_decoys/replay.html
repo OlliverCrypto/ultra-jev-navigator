@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Screencast Replay - OpenClaw Browser</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+  .container { max-width: 1000px; width: 100%; background: #1e293b; border-radius: 12px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+  h2 { margin-top: 0; color: #38bdf8; display: flex; justify-content: space-between; align-items: center; }
+  .screen-box { width: 100%; height: 560px; background: #000; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative; }
+  .screen-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .controls { margin-top: 15px; display: flex; align-items: center; gap: 12px; }
+  button { background: #0284c7; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 14px; }
+  button:hover { background: #0369a1; }
+  .timeline { flex: 1; }
+  input[type=range] { width: 100%; accent-color: #38bdf8; cursor: pointer; }
+  .info { font-size: 13px; color: #94a3b8; font-family: monospace; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>
+    <span>📹 Execução de Navegação (Replay)</span>
+    <span class="info" id="frame-info">Frame: 0 / 24</span>
+  </h2>
+  <div class="screen-box">
+    <img id="screen" src="frames/frame_00001.jpg" alt="Replay Frame" />
+  </div>
+  <div class="controls">
+    <button id="btn-play">▶ Play</button>
+    <button id="btn-prev">⏮</button>
+    <button id="btn-next">⏭</button>
+    <div class="timeline">
+      <input type="range" id="scrubber" min="0" max="23" value="0">
+    </div>
+    <select id="speed-sel" style="background:#334155; color:#fff; border:none; padding:8px; border-radius:6px;">
+      <option value="0.5">0.5x</option>
+      <option value="1" selected>1.0x</option>
+      <option value="2">2.0x</option>
+      <option value="4">4.0x</option>
+    </select>
+  </div>
+</div>
+
+<script>
+  const frames = ["frame_00001.jpg", "frame_00002.jpg", "frame_00003.jpg", "frame_00004.jpg", "frame_00005.jpg", "frame_00006.jpg", "frame_00007.jpg", "frame_00008.jpg", "frame_00009.jpg", "frame_00010.jpg", "frame_00011.jpg", "frame_00012.jpg", "frame_00013.jpg", "frame_00014.jpg", "frame_00015.jpg", "frame_00016.jpg", "frame_00017.jpg", "frame_00018.jpg", "frame_00019.jpg", "frame_00020.jpg", "frame_00021.jpg", "frame_00022.jpg", "frame_00023.jpg", "frame_00024.jpg"];
+  let currentIndex = 0;
+  let isPlaying = false;
+  let playInterval = null;
+  const imgEl = document.getElementById('screen');
+  const scrubber = document.getElementById('scrubber');
+  const infoEl = document.getElementById('frame-info');
+  const btnPlay = document.getElementById('btn-play');
+  const speedSel = document.getElementById('speed-sel');
+
+  function updateFrame(idx) {
+    if (idx < 0 || idx >= frames.length) return;
+    currentIndex = idx;
+    imgEl.src = 'frames/' + frames[currentIndex];
+    scrubber.value = currentIndex;
+    infoEl.innerText = `Frame: ${currentIndex + 1} / ${frames.length}`;
+  }
+
+  function togglePlay() {
+    if (isPlaying) {
+      clearInterval(playInterval);
+      isPlaying = false;
+      btnPlay.innerText = '▶ Play';
+    } else {
+      isPlaying = true;
+      btnPlay.innerText = '⏸ Pausar';
+      const speed = parseFloat(speedSel.value);
+      const delay = 100 / speed;
+      playInterval = setInterval(() => {
+        if (currentIndex < frames.length - 1) {
+          updateFrame(currentIndex + 1);
+        } else {
+          updateFrame(0);
+        }
+      }, delay);
+    }
+  }
+
+  btnPlay.onclick = togglePlay;
+  document.getElementById('btn-prev').onclick = () => updateFrame(currentIndex - 1);
+  document.getElementById('btn-next').onclick = () => updateFrame(currentIndex + 1);
+  scrubber.oninput = (e) => updateFrame(parseInt(e.target.value));
+  speedSel.onchange = () => {
+    if (isPlaying) {
+      togglePlay();
+      togglePlay();
+    }
+  };
+</script>
+</body>
+</html>

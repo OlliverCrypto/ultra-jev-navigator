@@ -1,0 +1,24 @@
+{
+  "total_frames": 3,
+  "duration": 8.63,
+  "frames": [
+    {
+      "frame": 1,
+      "file": "frame_00001.jpg",
+      "timestamp": 1792204558.32531,
+      "elapsed": 0.044
+    },
+    {
+      "frame": 2,
+      "file": "frame_00002.jpg",
+      "timestamp": 1792204559.336675,
+      "elapsed": 1.056
+    },
+    {
+      "frame": 3,
+      "file": "frame_00003.jpg",
+      "timestamp": 1792204559.845827,
+      "elapsed": 1.564
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+[
+  {
+    "provider": "nvidia",
+    "model": "stepfun-ai/step-5-preview",
+    "scenario": "sc1_busca_shuffled_with_decoys",
+    "success": true,
+    "total_elapsed": 16.0,
+    "total_model_latency": 3.0,
+    "steps": 1,
+    "indices_used": [
+      5
+    ],
+    "history": [
+      "Turn 1: {\"action\": \"TYPE_TEXT\", \"target\": 5, \"text\": \"BTC\"}"
+    ],
+    "recording_path": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\anti_memorization\\nvidia_stepfun-ai_step-5-preview_sc1_busca_shuffled_with_decoys\\recording.webp",
+    "replay_html": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\anti_memorization\\nvidia_stepfun-ai_step-5-preview_sc1_busca_shuffled_with_decoys\\replay.html"
+  },
+  {
+    "provider": "nvidia",
+    "model": "stepfun-ai/step-5-preview",
+    "scenario": "sc2_formulario_shuffled_with_decoys",
+    "success": true,
+    "total_elapsed": 15.17,
+    "total_model_latency": 2.95,
+    "steps": 1,
+    "indices_used": [
+      2
+    ],
+    "history": [
+      "Turn 1: {\"action\": \"SELECT\", \"target\": 2, \"value\": \"BTC-PERP\"}"
+    ],
+    "recording_path": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\anti_memorization\\nvidia_stepfun-ai_step-5-preview_sc2_formulario_shuffled_with_decoys\\recording.webp",
+    "replay_html": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\anti_memorization\\nvidia_stepfun-ai_step-5-preview_sc2_formulario_shuffled_with_decoys\\replay.html"
+  },
+  {
+    "provider": "openrouter",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "scenario": "sc1_busca_shuffled_with_decoys",
+    "success": true,
+    "total_elapsed": 15.9,
+    "total_model_latency": 1.24,
+    "steps": 1,
+    "indices_used": [
+      5
+    ],
+    "history": [
+      "Turn 1: {\"action\": \"TYPE_TEXT\", \"target\": 5, \"text\": \"BTC\"}"
+    ],
+    "recording_path": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\anti_memorization\\openrouter_deepseek_deepseek-v4.1-flash_sc1_busca_shuffled_with_decoys\\recording.webp",
+    "replay_html": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\anti_memorization\\openrouter_deepseek_deepseek-v4.1-flash_sc1_busca_shuffled_with_decoys\\replay.html"
+  },
+  {
+    "provider": "openrouter",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "scenario": "sc2_formulario_shuffled_with_decoys",
+    "success": true,
+    "total_elapsed": 15.85,
+    "total_model_latency": 0.6,
+    "steps": 1,
+    "indices_used": [
+      1
+    ],
+    "history": [
+      "Turn 1: {\"action\": \"SELECT\", \"target\": 1, \"value\": \"BTC-PERP\"}"
+    ],
+    "recording_path": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\anti_memorization\\openrouter_deepseek_deepseek-v4.1-flash_sc2_formulario_shuffled_with_decoys\\recording.webp",
+    "replay_html": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\anti_memorization\\openrouter_deepseek_deepseek-v4.1-flash_sc2_formulario_shuffled_with_decoys\\replay.html"
+  }
+]

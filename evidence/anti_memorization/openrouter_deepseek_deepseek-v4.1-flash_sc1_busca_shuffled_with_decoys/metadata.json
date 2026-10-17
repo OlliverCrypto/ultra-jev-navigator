@@ -1,0 +1,168 @@
+{
+  "total_frames": 27,
+  "duration": 15.05,
+  "frames": [
+    {
+      "frame": 1,
+      "file": "frame_00001.jpg",
+      "timestamp": 1792206330.603156,
+      "elapsed": 0.039
+    },
+    {
+      "frame": 2,
+      "file": "frame_00002.jpg",
+      "timestamp": 1792206331.41041,
+      "elapsed": 2.071
+    },
+    {
+      "frame": 3,
+      "file": "frame_00003.jpg",
+      "timestamp": 1792206332.887767,
+      "elapsed": 2.323
+    },
+    {
+      "frame": 4,
+      "file": "frame_00004.jpg",
+      "timestamp": 1792206333.416095,
+      "elapsed": 2.852
+    },
+    {
+      "frame": 5,
+      "file": "frame_00005.jpg",
+      "timestamp": 1792206333.953628,
+      "elapsed": 3.39
+    },
+    {
+      "frame": 6,
+      "file": "frame_00006.jpg",
+      "timestamp": 1792206334.47653,
+      "elapsed": 3.912
+    },
+    {
+      "frame": 7,
+      "file": "frame_00007.jpg",
+      "timestamp": 1792206335.019982,
+      "elapsed": 4.456
+    },
+    {
+      "frame": 8,
+      "file": "frame_00008.jpg",
+      "timestamp": 1792206335.540091,
+      "elapsed": 4.976
+    },
+    {
+      "frame": 9,
+      "file": "frame_00009.jpg",
+      "timestamp": 1792206336.068707,
+      "elapsed": 5.505
+    },
+    {
+      "frame": 10,
+      "file": "frame_00010.jpg",
+      "timestamp": 1792206336.607396,
+      "elapsed": 6.043
+    },
+    {
+      "frame": 11,
+      "file": "frame_00011.jpg",
+      "timestamp": 1792206337.127293,
+      "elapsed": 6.564
+    },
+    {
+      "frame": 12,
+      "file": "frame_00012.jpg",
+      "timestamp": 1792206337.66052,
+      "elapsed": 7.097
+    },
+    {
+      "frame": 13,
+      "file": "frame_00013.jpg",
+      "timestamp": 1792206338.188967,
+      "elapsed": 7.625
+    },
+    {
+      "frame": 14,
+      "file": "frame_00014.jpg",
+      "timestamp": 1792206338.716503,
+      "elapsed": 8.152
+    },
+    {
+      "frame": 15,
+      "file": "frame_00015.jpg",
+      "timestamp": 1792206339.246371,
+      "elapsed": 8.682
+    },
+    {
+      "frame": 16,
+      "file": "frame_00016.jpg",
+      "timestamp": 1792206339.77918,
+      "elapsed": 9.217
+    },
+    {
+      "frame": 17,
+      "file": "frame_00017.jpg",
+      "timestamp": 1792206340.307103,
+      "elapsed": 9.742
+    },
+    {
+      "frame": 18,
+      "file": "frame_00018.jpg",
+      "timestamp": 1792206340.844057,
+      "elapsed": 10.279
+    },
+    {
+      "frame": 19,
+      "file": "frame_00019.jpg",
+      "timestamp": 1792206341.366899,
+      "elapsed": 10.803
+    },
+    {
+      "frame": 20,
+      "file": "frame_00020.jpg",
+      "timestamp": 1792206341.898529,
+      "elapsed": 11.335
+    },
+    {
+      "frame": 21,
+      "file": "frame_00021.jpg",
+      "timestamp": 1792206342.427565,
+      "elapsed": 11.863
+    },
+    {
+      "frame": 22,
+      "file": "frame_00022.jpg",
+      "timestamp": 1792206342.955907,
+      "elapsed": 12.391
+    },
+    {
+      "frame": 23,
+      "file": "frame_00023.jpg",
+      "timestamp": 1792206343.489104,
+      "elapsed": 12.925
+    },
+    {
+      "frame": 24,
+      "file": "frame_00024.jpg",
+      "timestamp": 1792206344.016387,
+      "elapsed": 13.452
+    },
+    {
+      "frame": 25,
+      "file": "frame_00025.jpg",
+      "timestamp": 1792206344.547156,
+      "elapsed": 13.983
+    },
+    {
+      "frame": 26,
+      "file": "frame_00026.jpg",
+      "timestamp": 1792206345.088217,
+      "elapsed": 14.526
+    },
+    {
+      "frame": 27,
+      "file": "frame_00027.jpg",
+      "timestamp": 1792206345.613276,
+      "elapsed": 15.048
+    }
+  ]
+}

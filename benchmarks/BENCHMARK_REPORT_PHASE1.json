@@ -1,0 +1,35 @@
+[
+  {
+    "scenario": "Cenario 1: Busca e Extracao Dinamica",
+    "success": true,
+    "elapsed_seconds": 2.078,
+    "extracted_value": "$68,450.00",
+    "indexed_elements": 2,
+    "token_footprint_jev": 88,
+    "token_footprint_raw_dom_est": 1056,
+    "recording_path": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\run_scenario_1\\recording.webp",
+    "replay_html": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\run_scenario_1\\replay.html"
+  },
+  {
+    "scenario": "Cenario 2: Formulario Multi-etapas com Validacao",
+    "success": true,
+    "elapsed_seconds": 2.126,
+    "extracted_value": "ORD-94821",
+    "indexed_elements": 5,
+    "token_footprint_jev": 228,
+    "token_footprint_raw_dom_est": 2736,
+    "recording_path": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\run_scenario_2\\recording.webp",
+    "replay_html": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\run_scenario_2\\replay.html"
+  },
+  {
+    "scenario": "Cenario 3: Feed SPA com Scroll e Alvo Dinamico",
+    "success": true,
+    "elapsed_seconds": 2.04,
+    "extracted_value": "CAPTURADO COM SUCESSO!",
+    "indexed_elements": 1,
+    "token_footprint_jev": 44,
+    "token_footprint_raw_dom_est": 528,
+    "recording_path": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\run_scenario_3\\recording.webp",
+    "replay_html": "C:\\Users\\Olliver_Crypto\\.openclaw\\workspace\\memory\\browser_benchmark\\run_scenario_3\\replay.html"
+  }
+]
