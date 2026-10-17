@@ -21,17 +21,17 @@
 <div class="container">
   <h2>
     <span>📹 Execução de Navegação (Replay)</span>
-    <span class="info" id="frame-info">Frame: 0 / 0</span>
+    <span class="info" id="frame-info">Frame: 0 / 5</span>
   </h2>
   <div class="screen-box">
-    <img id="screen" src="frames/" alt="Replay Frame" />
+    <img id="screen" src="frames/frame_00001.jpg" alt="Replay Frame" />
   </div>
   <div class="controls">
     <button id="btn-play">▶ Play</button>
     <button id="btn-prev">⏮</button>
     <button id="btn-next">⏭</button>
     <div class="timeline">
-      <input type="range" id="scrubber" min="0" max="0" value="0">
+      <input type="range" id="scrubber" min="0" max="4" value="0">
     </div>
     <select id="speed-sel" style="background:#334155; color:#fff; border:none; padding:8px; border-radius:6px;">
       <option value="0.5">0.5x</option>
@@ -43,7 +43,7 @@
 </div>
 
 <script>
-  const frames = [];
+  const frames = ["frame_00001.jpg", "frame_00002.jpg", "frame_00003.jpg", "frame_00004.jpg", "frame_00005.jpg"];
   let currentIndex = 0;
   let isPlaying = false;
   let playInterval = null;

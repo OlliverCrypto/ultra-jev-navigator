@@ -25,20 +25,35 @@ def close_tab(cdp_host="127.0.0.1:9223", target_id=""):
     except Exception as e:
         return str(e)
 
-def get_tab(cdp_host="127.0.0.1:9223", target_id=None):
-    url = f"http://{cdp_host}/json/list"
-    with urllib.request.urlopen(url, timeout=5) as r:
-        tabs = json.loads(r.read().decode("utf-8"))
-        if target_id:
-            for t in tabs:
-                if t.get("id") == target_id:
-                    return t
-        for t in tabs:
-            if t.get("type") == "page":
-                return t
-        return None
+async def capture_single_screenshot(ws, frames_dir, frame_idx, start_time, frame_meta):
+    cmd_id = 8000 + frame_idx
+    msg = {
+        "id": cmd_id,
+        "method": "Page.captureScreenshot",
+        "params": {"format": "jpeg", "quality": 80}
+    }
+    await ws.send(json.dumps(msg))
+    while True:
+        resp = await ws.recv()
+        data = json.loads(resp)
+        if data.get("id") == cmd_id:
+            b64_data = data.get("result", {}).get("data")
+            if b64_data:
+                filename = f"frame_{frame_idx:05d}.jpg"
+                filepath = os.path.join(frames_dir, filename)
+                with open(filepath, "wb") as f:
+                    f.write(base64.b64decode(b64_data))
+                now = time.time()
+                frame_meta.append({
+                    "frame": frame_idx,
+                    "file": filename,
+                    "timestamp": now,
+                    "elapsed": round(now - start_time, 3)
+                })
+                return True
+            return False
 
-async def record_screencast(ws_url, output_dir, max_seconds=10, fps_limit=10):
+async def record_screencast(ws_url, output_dir, max_seconds=10, fps_limit=8):
     os.makedirs(output_dir, exist_ok=True)
     frames_dir = os.path.join(output_dir, "frames")
     os.makedirs(frames_dir, exist_ok=True)
@@ -54,7 +69,11 @@ async def record_screencast(ws_url, output_dir, max_seconds=10, fps_limit=10):
         await ws.send(json.dumps({"id": 1, "method": "Page.enable"}))
         await ws.send(json.dumps({"id": 2, "method": "Network.enable"}))
 
-        # 2. Iniciar Screencast
+        # 2. Captura garantida do primeiro frame imediatamente
+        frame_count += 1
+        await capture_single_screenshot(ws, frames_dir, frame_count, start_time, frame_meta)
+
+        # 3. Iniciar Screencast contínuo
         screencast_cmd = {
             "id": 3,
             "method": "Page.startScreencast",
@@ -81,7 +100,7 @@ async def record_screencast(ws_url, output_dir, max_seconds=10, fps_limit=10):
                         frame_b64 = params.get("data")
                         metadata = params.get("metadata", {})
 
-                        # Acknowledge imediato para receber o próximo frame
+                        # Acknowledge imediato
                         ack = {
                             "id": 1000 + frame_count,
                             "method": "Page.screencastFrameAck",
@@ -112,6 +131,11 @@ async def record_screencast(ws_url, output_dir, max_seconds=10, fps_limit=10):
                 except asyncio.TimeoutError:
                     continue
         finally:
+            # Captura frame final garantido se nada foi capturado no meio
+            if frame_count == 1:
+                frame_count += 1
+                await capture_single_screenshot(ws, frames_dir, frame_count, start_time, frame_meta)
+            
             print(f"[Recorder] Finalizando screencast... Total de frames: {frame_count}")
             await ws.send(json.dumps({"id": 9999, "method": "Page.stopScreencast"}))
 
@@ -134,14 +158,22 @@ async def record_screencast(ws_url, output_dir, max_seconds=10, fps_limit=10):
                 if os.path.exists(p):
                     images.append(Image.open(p))
             if images:
+                target_size = images[0].size
+                normalized_images = []
+                for img in images:
+                    if img.size != target_size:
+                        img = img.resize(target_size, Image.Resampling.LANCZOS)
+                    normalized_images.append(img)
+
                 webp_path = os.path.join(output_dir, "recording.webp")
-                duration_per_frame = int((time.time() - start_time) / frame_count * 1000)
-                images[0].save(
+                total_duration = time.time() - start_time
+                duration_per_frame = int((total_duration / max(frame_count, 1)) * 1000)
+                normalized_images[0].save(
                     webp_path,
                     format="WEBP",
                     save_all=True,
-                    append_images=images[1:],
-                    duration=max(duration_per_frame, 50),
+                    append_images=normalized_images[1:],
+                    duration=max(duration_per_frame, 150),
                     loop=0
                 )
                 print(f"[Recorder] Gravacao WebP salva em: {webp_path}")
@@ -150,7 +182,6 @@ async def record_screencast(ws_url, output_dir, max_seconds=10, fps_limit=10):
 
     # Gerar HTML Replay Player
     generate_replay_html(output_dir, frame_meta)
-    print(f"[Recorder] Player HTML gerado em: {os.path.join(output_dir, 'replay.html')}")
     return frame_count
 
 def generate_replay_html(output_dir, frame_meta):
@@ -253,18 +284,3 @@ def generate_replay_html(output_dir, frame_meta):
 </html>"""
     with open(os.path.join(output_dir, "replay.html"), "w", encoding="utf-8") as f:
         f.write(html_content)
-
-if __name__ == "__main__":
-    cdp = "127.0.0.1:9223"
-    print("[1] Abrindo nova aba limpa para teste de gravacao...")
-    tab = open_test_tab(cdp, "https://example.com")
-    print(f"Aba criada: {tab.get('id')} - {tab.get('url')}")
-    ws_url = tab.get("webSocketDebuggerUrl")
-    
-    out_dir = os.path.join(r"C:\Users\Olliver_Crypto\.openclaw\workspace\memory\browser_benchmark\test_run_01")
-    try:
-        frames = asyncio.run(record_screencast(ws_url, out_dir, max_seconds=4, fps_limit=5))
-        print(f"Teste concluido com sucesso! Frames: {frames}")
-    finally:
-        print("[2] Fechando aba de teste...")
-        close_tab(cdp, tab.get("id"))

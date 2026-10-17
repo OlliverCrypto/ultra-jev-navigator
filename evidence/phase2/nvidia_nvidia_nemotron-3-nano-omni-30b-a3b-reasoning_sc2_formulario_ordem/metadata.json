@@ -1,5 +1,36 @@
 {
-  "total_frames": 0,
-  "duration": 14.06,
-  "frames": []
+  "total_frames": 5,
+  "duration": 8.12,
+  "frames": [
+    {
+      "frame": 1,
+      "file": "frame_00001.jpg",
+      "timestamp": 1792208502.445704,
+      "elapsed": 0.058
+    },
+    {
+      "frame": 2,
+      "file": "frame_00002.jpg",
+      "timestamp": 1792208502.459812,
+      "elapsed": 0.077
+    },
+    {
+      "frame": 3,
+      "file": "frame_00003.jpg",
+      "timestamp": 1792208503.208859,
+      "elapsed": 0.825
+    },
+    {
+      "frame": 4,
+      "file": "frame_00004.jpg",
+      "timestamp": 1792208504.639104,
+      "elapsed": 2.255
+    },
+    {
+      "frame": 5,
+      "file": "frame_00005.jpg",
+      "timestamp": 1792208505.440112,
+      "elapsed": 3.057
+    }
+  ]
 }
